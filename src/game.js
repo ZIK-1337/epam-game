@@ -1,10 +1,5 @@
 'use strict';
 
-/**
- * TODO Task1. Объявление переменных и их связка с DOM
- *  Для получения доступа к DOM элементу следует
- *  использовать document.getElementById('elementId')
- */
 const $containerGame = document.getElementById('container'),
   $mapCanvas = document.getElementById('mapCanvas'),
   $gameCaption = document.querySelector('.game-name'),
@@ -14,8 +9,9 @@ const $containerGame = document.getElementById('container'),
   $team1Coins = document.getElementById('team1-coins'),
   $team2Lives = document.getElementById('team2-lives'),
   $team2Coins = document.getElementById('team2-coins'),
-  $team2Caption = document.getElementById('team2-name'),
-  $btnGameList = document.getElementById('btn-game-list'),
+  $team2Caption = document.getElementById('team2-name');
+
+const $btnGameList = document.getElementById('btn-game-list'),
   $btnStart = document.getElementById('btn-game-start'),
   $btnLeave = document.getElementById('btn-game-leave'),
   $btnCancel = document.getElementById('btn-game-cancel');
@@ -28,14 +24,20 @@ const $imgHeart = document.getElementById('img_heart'),
   $imgThiefSelf = document.getElementById('img_thief_self'),
   $imgSwitch = document.getElementById('img_switch'),
   $team1Container = document.getElementById('team1Container'),
-  $team2Container = document.getElementById('team2Container'),
-  $btnConnect = document.getElementById('btnConnect'),
+  $team2Container = document.getElementById('team2Container');
+
+const $btnConnect = document.getElementById('btnConnect'),
   $btnConnectPolice = document.getElementById('btnConnectPolice'),
   $btnConnectThief = document.getElementById('btnConnectThief'),
   $btnPause = document.getElementById('btnPause'),
   $team1Players = document.getElementById('team1Players'),
   $team2Players = document.getElementById('team2Players'),
   $loading = document.querySelector('.lds-ring');
+  /**
+ * TODO Task1. Объявление переменных и их связка с DOM
+ *  Для получения доступа к DOM элементу следует
+ *  использовать document.getElementById('elementId')
+ */
 
 // game.html UI
 (function (app, $) {
@@ -73,6 +75,7 @@ const $imgHeart = document.getElementById('img_heart'),
         $canvas.style.height = height;
         $canvas.width = width;
         $canvas.height = height;
+
         return $canvas;
       }
 
@@ -85,6 +88,7 @@ const $imgHeart = document.getElementById('img_heart'),
         /**
          * TODO Task 3. Опишите заполнение цветами карты на канвасе
          */
+
         for (let i = 0; i < map.cells.length; i++) {
           const cell = map.cells[i];
           const x = i % map.width;
@@ -161,30 +165,15 @@ const $imgHeart = document.getElementById('img_heart'),
        *      можно попробовать сделать это используя модальные окна, только если игра уже работает
        *      https://getbootstrap.com/docs/3.3/javascript/#modals
        */
-      GameView.prototype.goToGameList = function () {
-        window.location.replace("index.html");
-      };
-      GameView.prototype.startGame = function () {
-        this.state.game.start();
-      };
-      GameView.prototype.joinAsRandom = function () {
-        this.state.game.join(GameApi.GameTeamRole.random);
-      };
-      GameView.prototype.joinAsPolice = function () {
-        this.state.game.join(GameApi.GameTeamRole.police);
-      };
-      GameView.prototype.joinAsThief = function () {
-        this.state.game.join(GameApi.GameTeamRole.thief);
-      };
-      GameView.prototype.leaveGame = function () {
-        this.state.game.leave();
-      };
-      GameView.prototype.pauseGame = function () {
-        this.state.game.pause();
-      };
-      GameView.prototype.cancelGame = function () {
-        this.state.game.cancel();
-      };
+      GameView.prototype.goToGameList = function () { window.location.replace("index.html");};
+      GameView.prototype.startGame = function () { this.state.game.start();};
+      GameView.prototype.joinAsRandom = function () { this.state.game.join(GameApi.GameTeamRole.random);};
+      GameView.prototype.joinAsPolice = function () { this.state.game.join(GameApi.GameTeamRole.police);};
+      GameView.prototype.joinAsThief = function () { this.state.game.join(GameApi.GameTeamRole.thief);};
+      GameView.prototype.leaveGame = function () { this.state.game.leave();};
+      GameView.prototype.pauseGame = function () { this.state.game.pause();};
+      GameView.prototype.cancelGame = function () { this.state.game.cancel();};
+
 
       GameView.prototype.stopMoving = function (event) {
         event.preventDefault();
@@ -213,8 +202,10 @@ const $imgHeart = document.getElementById('img_heart'),
          * TODO Task 4. Используя addEventListener повешайте обработчики событий на кнопки
          *  нажатия на кнопки это событие click
          */
-        $btnGameList.addEventListener('click', () => this.goToGameList()); // !
-        $btnStart.addEventListener('click', () => this.startGame()); // !
+        //...
+
+        $btnGameList.addEventListener('click', () => this.goToGameList()); 
+        $btnStart.addEventListener('click', () => this.startGame()); 
         $btnCancel.addEventListener('click', () => this.cancelGame());
         $btnLeave.addEventListener('click', () => this.leaveGame());
         $btnConnect.addEventListener('click', () => this.joinAsRandom());
@@ -229,22 +220,12 @@ const $imgHeart = document.getElementById('img_heart'),
           /**
            * TODO Task 5. Допишите обработку нажатий клавиш передвижения
            */
-          switch (event.key) { // стрелки и пробел
-            case 'Space':
-              this.stopMoving(event);
-              break;
-            case 'ArrowRight':
-              this.moveRight(event);
-              break;
-            case 'ArrowLeft':
-              this.moveLeft(event);
-              break;
-            case 'ArrowUp':
-              this.moveUp(event);
-              break;
-            case 'ArrowDown':
-              this.moveDown(event);
-              break;
+          switch (event.key) { // пробел и стрелки
+            case 'Space' : this.stopMoving(event); break;
+            case 'ArrowRight' : this.moveRight(event); break;
+            case 'ArrowLeft' : this.moveLeft(event); break;
+            case 'ArrowUp' : this.moveUp(event); break;
+            case 'ArrowDown' : this.moveDown(event); break;
           }
         });
         window.addEventListener('keyup', () => $lastKey = -1);
@@ -307,7 +288,7 @@ const $imgHeart = document.getElementById('img_heart'),
       };
       GameView.prototype.updateMap = function (map) {
         map = map || this.state.map;
-        // if (!this.game.mapBuffer) { // перезагрузка буфера карты каждые 50 мс в качестве фикса, когда карта не обновляется
+        // if (!this.game.mapBuffer) { // если карта не обновляется
         this.game.mapCellSize = getMapCellSize(map);
         var width = map.width * this.game.mapCellSize;
         var height = map.height * this.game.mapCellSize;
@@ -334,10 +315,9 @@ const $imgHeart = document.getElementById('img_heart'),
         status = status || this.state.status;
         /**
          * TODO: Task 6. Поменяйте под вашу вёрстку
-         * ПОМЕНЯТЬ ПОД GAME-CAPTION
          */
         utils.reWriteDomElement(
-          this.game.$gameCaption, `${name} <span class='badge game-caption-status-${status}'>${utils.getStatusName(status)}</span>`,
+          this.game.$gameCaption, `${name} <span class='badge game-caption-status-${status}'>${utils.getStatusName(status)}</span>`
         );
       };
       GameView.prototype.setTimer = function (data) {
@@ -380,7 +360,8 @@ const $imgHeart = document.getElementById('img_heart'),
         /**
          * TODO: Task 8. Поменяйте под вашу вёрстку
          */
-        /*utils.reWriteDomElement($team.$caption, `<div class='game-team-${role}-caption'>
+        /* было:
+        utils.reWriteDomElement($team.$caption, `<div class='game-team-${role}-caption'>
                     <span class='game-team-name'>${team.name}</span>
                     <span class='game-team-role game-team-role-${role}'>${ROLE_TITLES[team.role] || ROLE_TITLES[team.role]}</span>
                     </div>`
@@ -504,7 +485,8 @@ const $imgHeart = document.getElementById('img_heart'),
         /**
          * TODO: Task 13. Опишите доступность элементов при загрузке игры $container $error $loading
          */
-        // спрятать контейнер с игрой, пока идет загрузка, показать $loading, скрыть $containerGame
+        // show $loading 
+        // hide $containerGame $error
         utils.removeClasses($loading, 'hidden');
         utils.addClasses($containerGame, 'hidden');
       };
@@ -512,6 +494,8 @@ const $imgHeart = document.getElementById('img_heart'),
         /**
          * TODO: Task 14. Опишите доступность элементов при показе ошибок $container $error $loading
          */
+        // show $error
+        // hide $containerGame $loading
         alert('error');
         utils.addClasses($containerGame, 'hidden');
       };
@@ -519,6 +503,8 @@ const $imgHeart = document.getElementById('img_heart'),
         /**
          * TODO: Task 15. Опишите доступность элементов при показе игры $container $error $loading
          */
+        // show $containerGame 
+        // hide $loading $error
         utils.removeClasses($containerGame, 'hidden');
         utils.addClasses($loading, 'hidden');
       };

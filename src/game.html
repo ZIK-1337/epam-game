@@ -15,7 +15,8 @@
   <link rel="stylesheet" href="game.css" type="text/css">
 </head>
 <body>
-<div class="lds-ring"> <!-- loader -->
+  <!-- окно загрузки -->
+<div class="lds-ring"> 
   <div></div>
   <div></div>
   <div></div>
@@ -29,29 +30,33 @@
       <div class="game-name">123 <span class="badge">открыта регистрация</span></div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-lg-12 timer">
       <div id="timer">00:00</div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-lg-3">
       <ul class="game-statistics game-statistic-blue" id="team1Container">
         <li id="team1-name">Синяки полиция</li>
-        <li>Жизни:<span class="life-bage" id="team1-lives">0</span></li>
-        <li>Монеты:<span class="coin-bage" id="team1-coins">3</span></li>
+        <li>Жизни:<span class="life-bage" id="team1-lives">3</span></li>
+        <li>Монеты:<span class="coin-bage" id="team1-coins">0</span></li>
         <li class="player-list">
           <ul class="game-statistics" id="team1Players"></ul>
         </li>
       </ul>
     </div>
+
     <div class="col-lg-6 map-canvas">
       <canvas id="mapCanvas"></canvas>
     </div>
+
     <div class="col-lg-3">
       <ul class="game-statistics game-statistic-yellow" id="team2Container">
         <li id="team2-name">Курилки мошенники</li>
-        <li>Жизни:<span class="life-bage" id="team2-lives">0</span></li>
+        <li>Жизни:<span class="life-bage" id="team2-lives">2</span></li>
         <li>Монеты:<span class="coin-bage" id="team2-coins">3</span></li>
         <li class="player-list">
           <ul class="game-statistics" id="team2Players"></ul>
@@ -59,17 +64,19 @@
       </ul>
     </div>
   </div>
+
   <div class="options">
     <button class="button-default hidden" id="btn-game-list">К списку игр</button>
     <button class="button-default hidden" id="btn-game-start">Начать игру</button>
     <button class="button-default hidden" id="btn-game-leave">Покинуть игру</button>
     <button id="btnConnect" class="button-default hidden">Подключиться к игре (случайно)</button>
     <button id="btnConnectPolice" class="button-default hidden">Подключиться к полиции</button>
-    <button id="btnConnectThief" class="button-default hidden">Подключиться к мошенникам</button>
+    <button id="btnConnectThief" class="button-default hidden">Подключиться к ворам</button>
     <button id="btnPause" class="button-default hidden">Пауза</button>
     <button class="button-default button-red hidden" id="btn-game-cancel">Прервать игру</button>
   </div>
 </div>
+
 <div class="hidden">
   <img id="img_heart"
        src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJzdmdfaGVhcnQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9

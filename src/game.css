@@ -2,37 +2,32 @@
     display: none;
 }
 
-body {
-    background-color: #696969;
-}
-
-.game-statistic-blue .game-player-name {
-    color: #0017bc;
-}
-
-.game-statistic-yellow .game-player-name {
-  color: #fbff0d;
-}
-
-.game-player-status-ad:before {
-    content: '(отк.)';
-}
-
 .map-canvas {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .game-timer-warn {
-  color: #FFA600;
+color: #FFA600;
 }
 .game-timer-cri {
-  color: red;
+color: red;
 }
 
-.badge {
-    background-color: darkgoldenrod;
-    vertical-align: super;
+body {
+    background-color: #454545;
+}
+
+.game-statistic-blue .game-player-name {
+    color: #0000CD;
+}
+
+.game-statistic-yellow .game-player-name {
+  color: #f6cb0d;
+}
+
+.game-player-status-ad:before {
+    content: '(off)';
 }
 
 .game-caption-status-0,
@@ -48,11 +43,23 @@ body {
   background-color: #660000;
 }
 .game-caption-status-6 {
-  background-color: #0099ff;
+  background-color: #0000CD;
+}
+
+.badge {
+    background-color: darkgoldenrod;
+    vertical-align: super;
 }
 
 .options {
     padding: 20px;
+}
+
+.game-name {
+  background-color: gray;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 5px;
 }
 
 .button-default {
@@ -69,15 +76,8 @@ body {
     border: 2px solid red;
 }
 
-.game-name {
-    background-color: gray;
-    padding: 8px;
-    margin-top: 10px;
-    border-radius: 5px;
-}
-
 .game-statistics {
-    background-color: grey;
+    background-color: gray;
     border-radius: 8px;
     font-size: 19px;
     padding-inline-start: 0;
@@ -94,15 +94,14 @@ body {
     width: 100%;
 }
 
-
-.coin-bage {
-    background-color: yellow;
-    border: 1px solid black;
-}
-
 .life-bage {
     background-color: red;
     border: 1px solid black;
+}
+
+.coin-bage {
+  background-color: yellow;
+  border: 1px solid black;
 }
 
 .game-statistic-blue {
@@ -123,12 +122,6 @@ body {
     color: black;
 }
 
-.timer {
-    color: gray;
-    text-align: center;
-    font-size: 40px;
-}
-
 .container {
     font-family: sans-serif;
     font-size: 20px;
@@ -143,7 +136,13 @@ body {
     box-shadow: 4px 6px 5px 0px rgb(68, 68, 68);
 }
 
-/* loader */
+.timer {
+  color: gray;
+  text-align: center;
+  font-size: 40px;
+}
+
+/* окно загрузки */
 .lds-ring {
   position: fixed;
   top: 50%;
